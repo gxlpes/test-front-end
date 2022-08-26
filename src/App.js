@@ -6,12 +6,13 @@ import CharacterList from "./components/CharacterList/CharacterList";
 import Footer from "./components/Footer/Footer";
 
 function App() {
+  const [fetchMore, setFetchMore] = useState(1);
   const [characters, setCharacters] = useState(null);
 
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
-        const res = await fetch("https://rickandmortyapi.com/api/character?page=1"); //getting the first page
+        const res = await fetch(`https://rickandmortyapi.com/api/character?page=${fetchMore}`); //getting the first page
         if (!res.ok) {
           // if res is not ok
           throw new Error("Something went wrong!");
@@ -28,7 +29,15 @@ function App() {
     };
 
     fetchCharacters();
-  }, []);
+  }, [fetchMore]);
+
+  window.addEventListener("scroll", () => {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+    if (clientHeight + scrollTop >= scrollHeight - 2) {
+      setFetchMore((prevFetch) => prevFetch + 1);
+    }
+  });
 
   return (
     <>
