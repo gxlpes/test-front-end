@@ -66,8 +66,6 @@ function App() {
     setSearch(inputData);
   };
   const filteredCharacters = characters.filter((character) => character.name.toLowerCase().includes(search.toLowerCase()));
-  console.log(filteredCharacters);
-
   return (
     <>
       {loading ? (
@@ -85,7 +83,12 @@ function App() {
             <HeroSection onInputData={searchHandler} />
             <button onClick={sortHandler}>Default</button>
             <button onClick={sortHandler}>Name</button>
-            <CharacterList filteredCharacters={characters} setDetail={setDetail} setClicked={setClicked} sort={sort} />
+            <CharacterList
+              filteredCharacters={filteredCharacters}
+              setDetail={setDetail}
+              setClicked={setClicked}
+              sort={sort}
+            />
             <Footer />
           </Content>
         </>
