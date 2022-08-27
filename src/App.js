@@ -12,7 +12,8 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [clicked, setClicked] = useState(false); // lifting modal state up (CharacterList > Character)
   const [detail, setDetail] = useState(" ");
-  const [search, setSearch] = useState(" ");
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState(false);
 
   /////////////////////// fetch function
   const fetchCharacters = async () => {
@@ -46,22 +47,12 @@ function App() {
     }
   }, []);
 
-  ///////////////////// sort handler and localStorage sort
+  ///////////////////// sort handler and localStorage sort, send data to CharacterList.js via props
   const sortHandler = (e) => {
     if (e.target.innerText === "Default") {
-      if (loadedDataStorage) {
-        characters.sort((a, b) => {
-          return a.id > b.id ? 1 : -1;
-        });
-        window.localStorage.setItem("charactersData", JSON.stringify(characters)); // setting flatten data to the localStorage
-      }
+      setSort(false);
     } else {
-      if (loadedDataStorage) {
-        characters.sort((a, b) => {
-          return a.name > b.name ? 1 : -1;
-        });
-        window.localStorage.setItem("charactersData", JSON.stringify(characters)); // setting flatten data to the localStorage
-      }
+      setSort(true);
     }
   };
 
@@ -75,6 +66,7 @@ function App() {
     setSearch(inputData);
   };
   const filteredCharacters = characters.filter((character) => character.name.toLowerCase().includes(search.toLowerCase()));
+  console.log(filteredCharacters);
 
   return (
     <>
@@ -93,12 +85,7 @@ function App() {
             <HeroSection onInputData={searchHandler} />
             <button onClick={sortHandler}>Default</button>
             <button onClick={sortHandler}>Name</button>
-            <CharacterList
-              filteredCharacters={filteredCharacters}
-              setDetail={setDetail}
-              setClicked={setClicked}
-              setSort={sortHandler}
-            />
+            <CharacterList filteredCharacters={characters} setDetail={setDetail} setClicked={setClicked} sort={sort} />
             <Footer />
           </Content>
         </>
