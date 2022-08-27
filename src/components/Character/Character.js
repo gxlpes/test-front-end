@@ -1,7 +1,12 @@
 import { CharacterCard } from "./CharacterStyles";
-const Character = ({ id, name, image }) => {
+
+const Character = ({ id, name, image, setClickedState }) => {
+  const modalHandler = () => {
+    setClickedState(true);
+  };
+
   return (
-    <CharacterCard>
+    <CharacterCard onClick={modalHandler}>
       <img src={image} alt="character" />
       <p>{id}</p>
       <p>{name}</p>

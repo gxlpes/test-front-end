@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-
+import { Content } from "./styles/ContentStyles";
+import Modal from "./components/Modal/Modal";
 import Navbar from "./components/Navbar/Navbar";
 import HeroSection from "./components/HeroSection/HeroSection";
 import CharacterList from "./components/CharacterList/CharacterList";
@@ -8,6 +9,11 @@ import Footer from "./components/Footer/Footer";
 function App() {
   const [characters, setCharacters] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [clicked, setClicked] = useState(false); // lifting modal state up (CharacterList > character)
+
+  const modalHandler = () => {
+    setClicked(false);
+  };
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -36,10 +42,18 @@ function App() {
         <p>Loading...</p>
       ) : (
         <>
-          <Navbar />
-          <HeroSection />
-          {characters && <CharacterList characters={characters} />}
-          <Footer />
+          <Content>
+            {clicked && (
+              <>
+                <div className="backdrop" onClick={modalHandler} />
+                <Modal setClicked={setClicked} />
+              </>
+            )}
+            <Navbar />
+            <HeroSection />
+            {characters && <CharacterList setClicked={setClicked} characters={characters} />}
+            <Footer />
+          </Content>
         </>
       )}
     </>
