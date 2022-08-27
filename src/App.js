@@ -15,7 +15,6 @@ function App() {
   const [search, setSearch] = useState(" ");
 
   /////////////////////// fetch function
-
   const fetchCharacters = async () => {
     console.log("rodou fetch");
     setLoading(true);
@@ -36,16 +35,35 @@ function App() {
     setLoading(false);
   };
 
+  const loadedDataStorage = localStorage.getItem("charactersData");
   useEffect(() => {
-    const loadedData = localStorage.getItem("charactersData");
-    if (loadedData) {
-      setCharacters(JSON.parse(loadedData));
+    if (loadedDataStorage) {
+      setCharacters(JSON.parse(loadedDataStorage));
       console.log("pegou localStorage");
     } else {
       console.log("sem localstorage");
       fetchCharacters();
     }
   }, []);
+
+  ///////////////////// sort handler and localStorage sort
+  const sortHandler = (e) => {
+    if (e.target.innerText === "Default") {
+      if (loadedDataStorage) {
+        characters.sort((a, b) => {
+          return a.id > b.id ? 1 : -1;
+        });
+        window.localStorage.setItem("charactersData", JSON.stringify(characters)); // setting flatten data to the localStorage
+      }
+    } else {
+      if (loadedDataStorage) {
+        characters.sort((a, b) => {
+          return a.name > b.name ? 1 : -1;
+        });
+        window.localStorage.setItem("charactersData", JSON.stringify(characters)); // setting flatten data to the localStorage
+      }
+    }
+  };
 
   /////////////////////// modal handler
   const modalHandler = () => {
@@ -73,7 +91,14 @@ function App() {
             )}
             <Navbar />
             <HeroSection onInputData={searchHandler} />
-            <CharacterList filteredCharacters={filteredCharacters} setDetail={setDetail} setClicked={setClicked} />
+            <button onClick={sortHandler}>Default</button>
+            <button onClick={sortHandler}>Name</button>
+            <CharacterList
+              filteredCharacters={filteredCharacters}
+              setDetail={setDetail}
+              setClicked={setClicked}
+              setSort={sortHandler}
+            />
             <Footer />
           </Content>
         </>

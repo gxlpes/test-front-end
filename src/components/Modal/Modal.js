@@ -1,6 +1,6 @@
 import { ModalContainer } from "./ModalStyles";
 
-const Modal = ({ setClicked, character, details }) => {
+const Modal = ({ setClicked, details }) => {
   console.log(details);
 
   const modalHandler = () => {
