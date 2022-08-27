@@ -11,10 +11,16 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [clicked, setClicked] = useState(false); // lifting modal state up (CharacterList > Character)
   const [detail, setDetail] = useState(" ");
+  const [search, setSearch] = useState("");
 
   const modalHandler = () => {
     setClicked(false);
   };
+
+  const searchHandler = (inputData) => {
+    setSearch(inputData);
+  };
+  const filteredCharacters = characters.filter((character) => character.name.toLowerCase().includes(search.toLowerCase()));
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -51,8 +57,10 @@ function App() {
               </>
             )}
             <Navbar />
-            <HeroSection />
-            {characters && <CharacterList setDetail={setDetail} setClicked={setClicked} characters={characters} />}
+            <HeroSection onInputData={searchHandler} />
+            {characters && (
+              <CharacterList filteredCharacters={filteredCharacters} setDetail={setDetail} setClicked={setClicked} />
+            )}
             <Footer />
           </Content>
         </>

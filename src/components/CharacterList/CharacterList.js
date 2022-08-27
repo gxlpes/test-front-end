@@ -2,11 +2,11 @@ import Character from "../Character/Character";
 import Modal from "../Modal/Modal";
 import { CharactersListContainer } from "./CharacterListStyles";
 
-const CharacterList = ({ characters, setClicked, setDetail }) => {
+const CharacterList = ({ filteredCharacters, setClicked, setDetail }) => {
   return (
     <CharactersListContainer>
-      {characters.length > 0 ? (
-        characters.map((character) => {
+      {filteredCharacters.length > 0 ? (
+        filteredCharacters.map((character) => {
           return (
             <>
               <Character

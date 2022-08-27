@@ -1,7 +1,9 @@
 import React from "react";
 
-const Input = () => {
-  return <input type="text" placeholder="Type what you want" />;
+const Input = ({ onInputData }) => {
+  const getInputHandler = (e) => onInputData(e.target.value);
+
+  return <input type="text" placeholder="Type what you want" onChange={getInputHandler} />;
 };
 
 export default Input;
