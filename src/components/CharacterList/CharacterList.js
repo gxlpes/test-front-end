@@ -1,5 +1,4 @@
 import Character from "../Character/Character";
-import Modal from "../Modal/Modal";
 import { CharactersListContainer } from "./CharacterListStyles";
 
 const CharacterList = ({ filteredCharacters, setClicked, setDetail }) => {
