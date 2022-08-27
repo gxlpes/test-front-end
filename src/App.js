@@ -17,7 +17,6 @@ function App() {
 
   /////////////////////// fetch function
   const fetchCharacters = async () => {
-    console.log("rodou fetch");
     setLoading(true);
     try {
       let responses = [];
@@ -31,7 +30,6 @@ function App() {
       window.localStorage.setItem("charactersData", JSON.stringify(flatArrayCharacters)); // setting flatten data to the localStorage
     } catch (error) {
       // if error
-      console.log(error);
     }
     setLoading(false);
   };
@@ -40,9 +38,7 @@ function App() {
   useEffect(() => {
     if (loadedDataStorage) {
       setCharacters(JSON.parse(loadedDataStorage));
-      console.log("pegou localStorage");
     } else {
-      console.log("sem localstorage");
       fetchCharacters();
     }
   }, []);
