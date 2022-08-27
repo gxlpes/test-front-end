@@ -1,4 +1,5 @@
 import { NavbarContainer, NavbarContent } from "./NavbarStyles";
+
 const Navbar = () => {
   return (
     <NavbarContainer>

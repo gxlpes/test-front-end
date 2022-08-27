@@ -6,7 +6,7 @@ const CharacterList = ({ characters }) => {
     <CharactersListContainer>
       {characters.length > 0 ? (
         characters.map((character) => {
-          return <Character key={character.characterid} image={character.image} name={character.name} />;
+          return <Character key={character.id} image={character.image} name={character.name} />;
         })
       ) : (
         <p>No character found!</p>
