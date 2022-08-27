@@ -1,8 +1,10 @@
 import { CharacterCard } from "./CharacterStyles";
 
-const Character = ({ id, name, image, setClickedState }) => {
+const Character = ({ id, name, image, setClickedState, setDetailState, character }) => {
   const modalHandler = () => {
     setClickedState(true);
+    setDetailState(character);
+    console.log(character);
   };
 
   return (

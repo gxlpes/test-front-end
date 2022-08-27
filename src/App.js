@@ -9,7 +9,8 @@ import Footer from "./components/Footer/Footer";
 function App() {
   const [characters, setCharacters] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [clicked, setClicked] = useState(false); // lifting modal state up (CharacterList > character)
+  const [clicked, setClicked] = useState(false); // lifting modal state up (CharacterList > Character)
+  const [detail, setDetail] = useState(" ");
 
   const modalHandler = () => {
     setClicked(false);
@@ -46,12 +47,12 @@ function App() {
             {clicked && (
               <>
                 <div className="backdrop" onClick={modalHandler} />
-                <Modal setClicked={setClicked} />
+                <Modal setClicked={setClicked} details={detail} />
               </>
             )}
             <Navbar />
             <HeroSection />
-            {characters && <CharacterList setClicked={setClicked} characters={characters} />}
+            {characters && <CharacterList setDetail={setDetail} setClicked={setClicked} characters={characters} />}
             <Footer />
           </Content>
         </>
