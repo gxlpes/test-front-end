@@ -11,7 +11,7 @@ const CharacterList = ({ filteredCharacters, setClicked, setDetail }) => {
 
     if (clientHeight + scrollTop >= scrollHeight - 1) {
       console.log(items);
-      setCurrentPage(currentPage + 5);
+      setCurrentPage(currentPage + 3);
     }
   });
 
