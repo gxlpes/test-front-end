@@ -6,11 +6,13 @@ const CharacterList = ({ filteredCharacters, setClicked, setDetail, sort }) => {
   // getting the state from App.js and changing the sort based in the state
   if (sort === false) {
     filteredCharacters.sort((a, b) => {
+      // normal sort
       return a.id > b.id ? 1 : -1;
     });
     window.localStorage.setItem("charactersData", JSON.stringify(filteredCharacters)); // setting flatten data to the localStorage
   } else {
     filteredCharacters.sort((a, b) => {
+      // name sort
       return a.name > b.name ? 1 : -1;
     });
     window.localStorage.setItem("charactersData", JSON.stringify(filteredCharacters)); // setting flatten data to the localStorage
@@ -23,9 +25,8 @@ const CharacterList = ({ filteredCharacters, setClicked, setDetail, sort }) => {
   window.addEventListener("scroll", () => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
-    if (clientHeight + scrollTop >= scrollHeight - 1) {
-      console.log(items);
-      setCurrentPage(currentPage + 3);
+    if (clientHeight + scrollTop >= scrollHeight - 75) {
+      setCurrentPage(currentPage + 20);
     }
   });
 
@@ -36,9 +37,11 @@ const CharacterList = ({ filteredCharacters, setClicked, setDetail, sort }) => {
           return (
             <>
               <Character
-                key={character.id}
                 image={character.image}
+                key={character.id}
                 name={character.name}
+                species={character.species}
+                status={character.status}
                 setClickedState={setClicked}
                 setDetailState={setDetail}
                 character={character}

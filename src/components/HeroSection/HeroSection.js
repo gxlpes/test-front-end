@@ -1,13 +1,32 @@
 import { HeroContainer, HeroContent } from "./HeroSectionStyles";
 import Input from "../Input/Input";
+import title from "../../assets/title.png";
 
-const HeroSection = ({ onInputData }) => {
+const HeroSection = ({ onInputData, onSort, sort }) => {
+  // sort handler and localStorage sort, send data to CharacterList.js via props
+  const sortHandler = (e) => {
+    if (e.target.innerText === "Default") {
+      onSort(false);
+    } else {
+      onSort(true);
+    }
+  };
+
   return (
     <HeroContainer>
       <HeroContent>
-        <h1>Rick and Morty</h1>
-        <h3>Character Search</h3>
+        <img src={title} alt="title" />
+        <h2>Character Search</h2>
       </HeroContent>
+      <div className="buttons">
+        <p>Sort by</p>
+        <button onClick={sortHandler} style={{ backgroundColor: sort ? "" : "#8AC645", border: sort ? " " : "none" }}>
+          Default
+        </button>
+        <button onClick={sortHandler} style={{ backgroundColor: sort ? "#8AC645" : " ", border: sort ? "none" : " " }}>
+          Name
+        </button>
+      </div>
       <Input onInputData={onInputData} />
     </HeroContainer>
   );

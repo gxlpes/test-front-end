@@ -1,6 +1,6 @@
-import { CharacterCard } from "./CharacterStyles";
+import { CharacterCard, CharacterContent } from "./CharacterStyles";
 
-const Character = ({ id, name, image, setClickedState, setDetailState, character }) => {
+const Character = ({ name, image, species, status, setClickedState, setDetailState, character }) => {
   // setting the modal open, setting the state content of the modal
   const modalHandler = () => {
     setClickedState(true);
@@ -10,9 +10,15 @@ const Character = ({ id, name, image, setClickedState, setDetailState, character
 
   return (
     <CharacterCard onClick={modalHandler}>
-      <img src={image} alt="character" />
-      <p>{id}</p>
-      <p>{name}</p>
+      <CharacterContent>
+        <img src={image} alt="character" />
+        <p className="name">
+          <b>{name}</b>
+        </p>
+        <p className="space">
+          {species} | {status}
+        </p>
+      </CharacterContent>
     </CharacterCard>
   );
 };

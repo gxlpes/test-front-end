@@ -1,10 +1,8 @@
 import { createGlobalStyle } from "styled-components";
-import Image from "../images/background.png";
+import Image from "../assets/background.png";
 
 export default createGlobalStyle`
-nav {
-margin-inline: auto;
-}
+
 
 body {
     background-image: url(${Image});
@@ -15,8 +13,15 @@ body {
     padding: 0;
     font-family: "Roboto", sans-serif;
     margin-inline: auto;
-    max-width: 75rem;
+    height: 100%;
 }
 
+nav {
+    max-width: 100vw;
+}
+
+*:focus {
+    outline: none;
+}
 
 `;

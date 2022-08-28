@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
+  max-width: 75rem;
+  margin-inline: auto;
+  flex: 1 0 auto;
+
   .modal {
     position: fixed;
     top: 30vh;

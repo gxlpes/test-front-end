@@ -4,7 +4,6 @@ import Modal from "./components/Modal/Modal";
 import Navbar from "./components/Navbar/Navbar";
 import HeroSection from "./components/HeroSection/HeroSection";
 import CharacterList from "./components/CharacterList/CharacterList";
-import Footer from "./components/Footer/Footer";
 
 function App() {
   ///////////////////////  states management
@@ -14,6 +13,22 @@ function App() {
   const [detail, setDetail] = useState(" ");
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState(false);
+
+  ////////////////////////// check if data is already loaded
+  const loadedDataStorage = localStorage.getItem("charactersData");
+  useEffect(() => {
+    if (loadedDataStorage) {
+      const formattedData = JSON.parse(loadedDataStorage);
+      setCharacters(formattedData);
+      if (formattedData[0].id === 1) {
+        setSort(false);
+      } else {
+        setSort(true);
+      }
+    } else {
+      fetchCharacters();
+    }
+  }, []);
 
   /////////////////////// fetch function
   const fetchCharacters = async () => {
@@ -34,24 +49,6 @@ function App() {
     setLoading(false);
   };
 
-  const loadedDataStorage = localStorage.getItem("charactersData");
-  useEffect(() => {
-    if (loadedDataStorage) {
-      setCharacters(JSON.parse(loadedDataStorage));
-    } else {
-      fetchCharacters();
-    }
-  }, []);
-
-  ///////////////////// sort handler and localStorage sort, send data to CharacterList.js via props
-  const sortHandler = (e) => {
-    if (e.target.innerText === "Default") {
-      setSort(false);
-    } else {
-      setSort(true);
-    }
-  };
-
   /////////////////////// modal handler
   const modalHandler = () => {
     setClicked(false);
@@ -68,6 +65,7 @@ function App() {
         <p>Loading...</p>
       ) : (
         <>
+          <Navbar />
           <Content>
             {clicked && (
               <>
@@ -75,17 +73,13 @@ function App() {
                 <Modal setClicked={setClicked} details={detail} />
               </>
             )}
-            <Navbar />
-            <HeroSection onInputData={searchHandler} />
-            <button onClick={sortHandler}>Default</button>
-            <button onClick={sortHandler}>Name</button>
+            <HeroSection onInputData={searchHandler} onSort={setSort} sort={sort} />
             <CharacterList
               filteredCharacters={filteredCharacters}
               setDetail={setDetail}
               setClicked={setClicked}
               sort={sort}
             />
-            <Footer />
           </Content>
         </>
       )}
