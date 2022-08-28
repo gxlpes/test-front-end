@@ -24,6 +24,7 @@ export const CharacterContent = styled.div`
 
   .name {
     font-size: clamp(0.5vw + 0.5rem, 0.8vw + 0.8rem, 1vw + 1rem);
+    font-weight: bold;
   }
 
   img {
@@ -37,6 +38,7 @@ export const CharacterContent = styled.div`
     margin-block: 0;
     margin-inline: 1.25rem;
     text-align: center;
+    font-weight: 400;
   }
 
   .sub {

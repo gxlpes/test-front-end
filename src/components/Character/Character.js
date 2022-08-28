@@ -13,9 +13,7 @@ const Character = ({ name, image, species, status, setClickedState, setDetailSta
     <CharacterCard onClick={modalHandler}>
       <CharacterContent>
         <img src={image} alt="character" />
-        <p className="name">
-          <b>{name}</b>
-        </p>
+        <p className="name">{name}</p>
         <p className="sub">
           {species} | {status === "unknown" ? "Unknown" : status === "Alive" ? "Alive" : "Dead"}
           {status === "Alive" ? (
