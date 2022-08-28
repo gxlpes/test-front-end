@@ -61,7 +61,6 @@ export const HeroContent = styled.div`
   margin-top: 1rem;
 
   img {
-    margin-left: 4rem;
     max-width: 90%;
     height: auto;
     margin-top: -1rem;
