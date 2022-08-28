@@ -29,7 +29,6 @@ const HeroSection = ({ onInputData, onSort, sort }) => {
         </button>
       </div>
       <div className="user-input">
-        <SearchIcon />
         <Input onInputData={onInputData} />
       </div>
     </HeroContainer>
