@@ -23,8 +23,9 @@ export const CharacterContent = styled.div`
   gap: 1rem;
 
   .name {
-    font-size: clamp(0.5vw + 0.5rem, 0.8vw + 0.8rem, 1vw + 1rem);
     font-weight: bold;
+    margin: 0;
+    margin-bottom: -0.5rem;
   }
 
   img {
