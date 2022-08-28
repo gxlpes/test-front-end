@@ -5,6 +5,13 @@ export default createGlobalStyle`
 
 * {
    scroll-behavior: smooth;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   :focus {
+    outline: none;
+}
+
 }
 
 body {
@@ -18,14 +25,43 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    
 }
 
 nav {
     max-width: 100vw;
+    animation: fadeIn 0.5s ease-in-out;
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 }
 
-*:focus {
-    outline: none;
-}
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110vh;
+    z-index: 9;
+    background: rgba(0, 0, 0, 0.75);
+    transition: all 0.2s ease-in-out;
+    animation: backdropAppear 0.3s ease-in-out;
 
+    @keyframes backdropAppear {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
 `;

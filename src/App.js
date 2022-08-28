@@ -27,10 +27,10 @@ function App() {
         setSort(true);
       }
     } else {
-      fetchCharacters();
       setTimeout(() => {
         fetchMoreData();
-      }, 2000);
+      }, 1000);
+      fetchCharacters();
     }
   }, []);
 
@@ -83,14 +83,14 @@ function App() {
         <Loading />
       ) : (
         <>
+          <Navbar />
+          {clicked && (
+            <>
+              <div className="backdrop" onClick={modalHandler} />
+              <Modal setClicked={setClicked} details={detail} />
+            </>
+          )}
           <Content>
-            <Navbar />
-            {clicked && (
-              <>
-                <div className="backdrop" onClick={modalHandler} />
-                <Modal setClicked={setClicked} details={detail} />
-              </>
-            )}
             <HeroSection onInputData={searchHandler} onSort={setSort} sort={sort} />
             <CharacterList
               filteredCharacters={filteredCharacters}

@@ -1,19 +1,21 @@
 import styled from "styled-components";
-import Image from "../assets/background.png";
 
 export const Content = styled.div`
   max-width: 75rem;
   margin-inline: auto;
   flex: 1 0 auto;
+  opacity: 0;
+  animation: fadeIn 0.5s 0.5s forwards ease-in-out;
 
-  .modal {
-    position: fixed;
-    top: 30vh;
-    left: 10%;
-    width: 80%;
-    z-index: 10;
-    overflow: hidden;
-    background-color: white;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .backdrop {

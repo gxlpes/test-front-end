@@ -3,29 +3,8 @@ import styled from "styled-components";
 export const HeroContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 4rem;
-
-  .buttons {
-    color: white;
-    font-family: inherit;
-    display: flex;
-    align-items: center;
-    margin-inline: auto;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .user-input {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-
-    svg {
-      width: 1.5rem;
-      fill: white;
-    }
-  }
+  margin-block: 4rem;
+  gap: 2rem;
 
   button {
     background-color: transparent;
@@ -47,9 +26,27 @@ export const HeroContainer = styled.div`
       outline: none;
       box-shadow: none;
     }
+  }
 
-    p {
-      filter: drop-shadow(0px 5px 5px black);
+  .buttons {
+    color: white;
+    font-family: inherit;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-inline: auto;
+    gap: 1rem;
+  }
+
+  .user-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    svg {
+      width: 1.5rem;
+      fill: white;
     }
   }
 `;
@@ -58,12 +55,10 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
 
   img {
     max-width: 90%;
     height: auto;
-    margin-top: -1rem;
     width: 40rem;
     filter: drop-shadow(0px 5px 5px black);
     transition: all 0.2s ease-in-out;
