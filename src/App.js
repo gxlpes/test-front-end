@@ -43,13 +43,13 @@ function App() {
         let res = await fetch(`https://rickandmortyapi.com/api/character?page=${i}`); //getting the first page
         const data = await res.json();
         responses.push(data.results);
-        setLoading(false);
       }
       const flatArrayCharacters = responses.flat(); // flat the arrays of arrays
       setCharacters(flatArrayCharacters);
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
   };
 
   const fetchMoreData = async () => {
