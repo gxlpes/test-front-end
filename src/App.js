@@ -28,15 +28,18 @@ function App() {
       }
     } else {
       fetchCharacters();
+      setTimeout(() => {
+        fetchMoreData();
+      }, 2000);
     }
   }, []);
 
   /////////////////////// fetch function
+  let responses = [];
   const fetchCharacters = async () => {
     setLoading(true);
     try {
-      let responses = [];
-      for (let i = 1; i <= 42; i++) {
+      for (let i = 1; i <= 10; i++) {
         let res = await fetch(`https://rickandmortyapi.com/api/character?page=${i}`); //getting the first page
         const data = await res.json();
         responses.push(data.results);
@@ -49,6 +52,20 @@ function App() {
     setLoading(false);
   };
 
+  const fetchMoreData = async () => {
+    try {
+      for (let i = 11; i <= 42; i++) {
+        let res = await fetch(`https://rickandmortyapi.com/api/character?page=${i}`); //getting the first page
+        const data = await res.json();
+        responses.push(data.results);
+      }
+      const flatArrayCharactersMore = responses.flat(); // flat the arrays of arrays
+      setCharacters(flatArrayCharactersMore);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   /////////////////////// modal handler
   const modalHandler = () => {
     setClicked(false);
@@ -59,6 +76,7 @@ function App() {
     setSearch(inputData);
   };
   const filteredCharacters = characters.filter((character) => character.name.toLowerCase().includes(search.toLowerCase()));
+
   return (
     <>
       {loading ? (

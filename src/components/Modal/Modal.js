@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ModalContainer } from "./ModalStyles";
+import { ReactComponent as DotSVG } from "../../assets/dot.svg";
 
 const Modal = ({ setClicked, details }) => {
   const [episodes, setEpisodes] = useState(" ");
@@ -25,9 +26,15 @@ const Modal = ({ setClicked, details }) => {
 
   return (
     <ModalContainer>
-      <h2 className="name">
-        {details.name} | ID {details.id}
-      </h2>
+      <div className="header">
+        <h3 className="name">
+          {details.name} | ID {details.id}
+        </h3>
+        <div className="dots">
+          <DotSVG className="green" />
+          <DotSVG className="blue" />
+        </div>
+      </div>
       <div className="container-character">
         <h3>Character</h3>
         <p>

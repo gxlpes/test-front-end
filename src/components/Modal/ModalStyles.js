@@ -29,6 +29,26 @@ export const ModalContainer = styled.div`
     }
   }
 
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    .dots {
+      display: flex;
+      gap: 0.8rem;
+
+      .green {
+        width: 0.8rem;
+        fill: #8ac645;
+      }
+
+      .blue {
+        width: 0.8rem;
+        fill: #00afc7;
+      }
+    }
+  }
+
   .container-character,
   .container-appear {
     margin-top: 1rem;
@@ -38,6 +58,7 @@ export const ModalContainer = styled.div`
     padding: 1rem;
     border-radius: 5px;
     color: #3f3f3f;
+    outline: 2px solid #8ac645;
 
     p {
       margin-inline: 0;
@@ -60,7 +81,6 @@ export const ModalContainer = styled.div`
 
   .name {
     font-weight: bold;
-    font-size: clamp(0.3vw + 0.3rem, 0.6vw + 0.6rem, 0.9vw + 0.9rem);
     margin: 0;
     color: #3f3f3f;
   }
