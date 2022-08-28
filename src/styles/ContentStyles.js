@@ -1,9 +1,15 @@
 import styled from "styled-components";
+import Image from "../assets/background.png";
 
 export const Content = styled.div`
   max-width: 75rem;
   margin-inline: auto;
   flex: 1 0 auto;
+
+  background-image: url(${Image});
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 
   .modal {
     position: fixed;

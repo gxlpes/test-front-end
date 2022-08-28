@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Content } from "./styles/ContentStyles";
+import Loading from "./components/Loading/Loading";
 import Modal from "./components/Modal/Modal";
 import Navbar from "./components/Navbar/Navbar";
 import HeroSection from "./components/HeroSection/HeroSection";
@@ -61,11 +62,11 @@ function App() {
   return (
     <>
       {loading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : (
         <>
-          <Navbar />
           <Content>
+            <Navbar />
             {clicked && (
               <>
                 <div className="backdrop" onClick={modalHandler} />
