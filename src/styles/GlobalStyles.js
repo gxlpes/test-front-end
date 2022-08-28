@@ -3,6 +3,9 @@ import Image from "../assets/background.png";
 
 export default createGlobalStyle`
 
+* {
+   scroll-behavior: smooth;
+}
 
 body {
     background-image: url(${Image});

@@ -22,7 +22,7 @@ export const HeroContainer = styled.div`
     gap: 1rem;
 
     svg {
-      width: 2rem;
+      width: 1.5rem;
       fill: white;
     }
   }
