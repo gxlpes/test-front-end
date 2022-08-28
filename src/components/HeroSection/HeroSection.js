@@ -1,6 +1,7 @@
 import { HeroContainer, HeroContent } from "./HeroSectionStyles";
 import Input from "../Input/Input";
 import title from "../../assets/title.png";
+import { ReactComponent as SearchIcon } from "../../assets/search.svg";
 
 const HeroSection = ({ onInputData, onSort, sort }) => {
   // sort handler and localStorage sort, send data to CharacterList.js via props
@@ -27,7 +28,10 @@ const HeroSection = ({ onInputData, onSort, sort }) => {
           Name
         </button>
       </div>
-      <Input onInputData={onInputData} />
+      <div className="user-input">
+        <SearchIcon />
+        <Input onInputData={onInputData} />
+      </div>
     </HeroContainer>
   );
 };

@@ -1,7 +1,23 @@
+import { useState, useEffect } from "react";
 import { ModalContainer } from "./ModalStyles";
 
 const Modal = ({ setClicked, details }) => {
-  console.log(details);
+  const [episodes, setEpisodes] = useState(" ");
+
+  // first episode fetch
+  useEffect(() => {
+    const fetchEp = async () => {
+      try {
+        let res = await fetch(`${details.episode[0]}`); //getting the first page
+        const firstEpisode = await res.json();
+        setEpisodes(firstEpisode);
+        console.log(firstEpisode);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchEp();
+  }, []);
 
   const modalHandler = () => {
     setClicked(false);
@@ -9,24 +25,37 @@ const Modal = ({ setClicked, details }) => {
 
   return (
     <ModalContainer>
-      <p className="name">{details.name}</p>
-      <p>
-        <b>Character ID:</b> {details.id}
-      </p>
-      <p>
-        <b>Gender:</b> {details.gender}
-      </p>
-      <p>
-        <b>Origin of the character:</b> {details.origin.name}
-      </p>
-      <p>
-        <b>Last known location of the character: </b>
-        {details.location.name}
-      </p>
-      <p>
-        <b>Number of episodes that this character appears:</b> {details.episode.length}
-      </p>
-      <button onClick={modalHandler}>Ok</button>
+      <h2 className="name">
+        {details.name} | ID {details.id}
+      </h2>
+      <div className="container-character">
+        <h3>Character</h3>
+        <p>
+          <b>Gender:</b> {details.gender}
+        </p>
+        <p>
+          <b>Origin of the character:</b> {details.origin.name}
+        </p>
+        <p>
+          <b>Last known location: </b>
+          {details.location.name}
+        </p>
+      </div>
+      <div className="container-appear">
+        <h3>Appearance</h3>
+        <p>
+          <b>Number of appearances: </b> {details.episode.length} episodes
+        </p>
+        <p>
+          <b>First appearance: </b>
+          {episodes.air_date} [{episodes.episode}]
+        </p>
+        <p>
+          <b>First episode name: </b>
+          {episodes.name}
+        </p>
+      </div>
+      <button onClick={modalHandler}>Dismiss</button>
     </ModalContainer>
   );
 };

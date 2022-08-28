@@ -22,22 +22,29 @@ export const CharacterContent = styled.div`
   align-items: center;
   gap: 1rem;
 
-  p {
-    margin: 0rem;
-    margin-inline: 1.25rem;
-    text-align: center;
-  }
-
   .name {
     font-size: clamp(0.5vw + 0.5rem, 0.8vw + 0.8rem, 1vw + 1rem);
-  }
-
-  .space {
-    margin-bottom: 1.5rem;
   }
 
   img {
     width: 100%;
     border-radius: 5px 5px 0px 0px;
+  }
+
+  p {
+    display: flex;
+    gap: 0.2rem;
+    margin-block: 0;
+    margin-inline: 1.25rem;
+    text-align: center;
+  }
+
+  .sub {
+    margin-bottom: 1.25rem;
+  }
+
+  svg {
+    width: 0.5rem;
+    margin-left: 0.2rem;
   }
 `;

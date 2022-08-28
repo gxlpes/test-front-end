@@ -23,5 +23,16 @@ export const Content = styled.div`
     height: 100vh;
     z-index: 5;
     background: rgba(0, 0, 0, 0.75);
+    transition: all 0.2s ease-in-out;
+    animation: backdropAppear 0.3s ease-in-out;
+
+    @keyframes backdropAppear {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   }
 `;

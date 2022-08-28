@@ -37,8 +37,8 @@ const CharacterList = ({ filteredCharacters, setClicked, setDetail, sort }) => {
           return (
             <>
               <Character
+                episode={character.episode}
                 image={character.image}
-                key={character.id}
                 name={character.name}
                 species={character.species}
                 status={character.status}

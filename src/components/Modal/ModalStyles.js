@@ -2,29 +2,77 @@ import styled from "styled-components";
 
 export const ModalContainer = styled.div`
   position: fixed;
-  top: 30vh;
-  left: 10%;
-  width: 50%;
+  width: 400px;
+  height: min-content;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px; /* Negative half of height. */
+  margin-left: -250px; /* Negative half of width. */
   z-index: 10;
   overflow: hidden;
   background-color: white;
   border-radius: 4px;
   padding: 1.25rem;
   filter: drop-shadow(0px 4px 4px black);
+  transition: all 0.3s ease-in-out;
+  animation: appear 0.2s ease-in-out;
+
+  @keyframes appear {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  .container-character,
+  .container-appear {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #f6f7f9;
+    padding: 1rem;
+    border-radius: 5px;
+    color: #3f3f3f;
+
+    p {
+      margin-inline: 0;
+      margin-block: 0.2rem;
+    }
+
+    h2 {
+      margin: 0;
+    }
+
+    h3 {
+      margin-inline: 0;
+      margin-block: 0rem 0.5rem;
+    }
+  }
+
+  .container-appear {
+    margin-bottom: 1rem;
+  }
 
   .name {
     font-weight: bold;
-    font-size: clamp(0.5vw + 0.5rem, 0.8vw + 0.8rem, 1vw + 1rem);
+    font-size: clamp(0.3vw + 0.3rem, 0.6vw + 0.6rem, 0.9vw + 0.9rem);
+    margin: 0;
+    color: #3f3f3f;
   }
 
   button {
     background-color: rgb(0, 175, 199);
-    width: 3rem;
+    width: 100%;
     height: 2rem;
-    padding: 0.2rem;
     border-radius: 3px;
     border: none;
     cursor: pointer;
+    color: white;
+    transition: all 0.3s ease-in-out;
 
     &:hover {
       opacity: 0.5;

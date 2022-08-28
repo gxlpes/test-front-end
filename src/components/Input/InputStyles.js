@@ -2,13 +2,12 @@ import styled from "styled-components";
 
 export const InputCharacter = styled.input`
   width: 10rem;
-  margin-inline: auto;
   padding: 1rem 2rem;
   border: none;
   text-align: center;
   border-radius: 3px;
-  margin-bottom: 1.5rem;
   filter: drop-shadow(0px 5px 5px black);
+  transition: all 0.3s ease-in-out;
 
   &:hover {
     transform: scale(1.02);

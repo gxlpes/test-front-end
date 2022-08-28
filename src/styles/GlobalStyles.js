@@ -8,6 +8,7 @@ body {
     background-image: url(${Image});
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
     box-sizing: border-box;
     margin: 0;
     padding: 0;

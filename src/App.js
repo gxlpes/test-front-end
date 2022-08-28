@@ -42,9 +42,8 @@ function App() {
       }
       const flatArrayCharacters = responses.flat(); // flat the arrays of arrays
       setCharacters(flatArrayCharacters);
-      window.localStorage.setItem("charactersData", JSON.stringify(flatArrayCharacters)); // setting flatten data to the localStorage
     } catch (error) {
-      // if error
+      console.log(error);
     }
     setLoading(false);
   };

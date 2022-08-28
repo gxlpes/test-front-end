@@ -15,6 +15,18 @@ export const HeroContainer = styled.div`
     margin-bottom: 1rem;
   }
 
+  .user-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    svg {
+      width: 2rem;
+      fill: white;
+    }
+  }
+
   button {
     background-color: transparent;
     height: 2rem;
@@ -24,9 +36,15 @@ export const HeroContainer = styled.div`
     border: white 2px solid;
     color: white;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    filter: drop-shadow(0px 5px 5px black);
 
     &:hover {
       opacity: 0.5;
+    }
+
+    p {
+      filter: drop-shadow(0px 5px 5px black);
     }
   }
 `;
@@ -43,11 +61,30 @@ export const HeroContent = styled.div`
     margin-top: -1rem;
     width: 40rem;
     filter: drop-shadow(0px 5px 5px black);
+    transition: all 0.2s ease-in-out;
+    animation: cycleTitle 4s infinite 0s ease-in-out;
+
+    @keyframes cycleTitle {
+      0% {
+        filter: drop-shadow(0px 0px 0px #8ac645);
+      }
+      50% {
+        filter: drop-shadow(0px 0px 15px #8ac645);
+      }
+      100% {
+        filter: drop-shadow(0px 0px 0px #8ac645);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.01);
+      filter: drop-shadow(0px 5px 5px #8ac645);
+    }
   }
 
   h2 {
     margin-top: -1rem;
-    font-size: clamp(1vw + 1rem, 1.25vw + 1rem, 1.5vw + 1rem);
+    font-size: clamp(0.8vw + 0.8rem, 1vw + 1rem, 1.2vw + 1.2rem);
     color: #8ac645;
     font-family: "Roboto", sans-serif;
     filter: drop-shadow(0px 5px 5px black);
