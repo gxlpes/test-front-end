@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const ModalContainer = styled.div`
+  right: 0;
+  left: 0;
+  top: 200px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 30rem;
+  width: 70%;
   position: fixed;
-  width: 400px;
-  height: min-content;
-  top: 50%;
-  left: 50%;
-  margin-top: -250px; /* Negative half of height. */
-  margin-left: -250px; /* Negative half of width. */
   z-index: 10;
   overflow: hidden;
   background-color: white;

@@ -20,8 +20,8 @@ export const Content = styled.div`
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    z-index: 5;
+    height: 110vh;
+    z-index: 9;
     background: rgba(0, 0, 0, 0.75);
     transition: all 0.2s ease-in-out;
     animation: backdropAppear 0.3s ease-in-out;

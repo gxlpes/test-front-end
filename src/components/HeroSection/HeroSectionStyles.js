@@ -39,8 +39,13 @@ export const HeroContainer = styled.div`
     transition: all 0.3s ease-in-out;
     filter: drop-shadow(0px 5px 5px black);
 
-    &:hover {
-      opacity: 0.5;
+    &:active {
+      opacity: 1;
+    }
+
+    :focus {
+      outline: none;
+      box-shadow: none;
     }
 
     p {
@@ -56,6 +61,7 @@ export const HeroContent = styled.div`
   margin-top: 1rem;
 
   img {
+    margin-left: 4rem;
     max-width: 90%;
     height: auto;
     margin-top: -1rem;
