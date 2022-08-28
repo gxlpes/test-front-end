@@ -5,6 +5,7 @@ import Modal from "./components/Modal/Modal";
 import Navbar from "./components/Navbar/Navbar";
 import HeroSection from "./components/HeroSection/HeroSection";
 import CharacterList from "./components/CharacterList/CharacterList";
+import ButtonScroll from "./components/ButtonScroll/ButtonScroll";
 
 function App() {
   ///////////////////////  states management
@@ -98,6 +99,7 @@ function App() {
               setClicked={setClicked}
               sort={sort}
             />
+            <ButtonScroll />
           </Content>
         </>
       )}

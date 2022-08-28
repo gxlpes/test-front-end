@@ -6,6 +6,7 @@ export const NavbarContainer = styled.a`
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(5px);
 
+  padding: 1rem;
   height: 4rem;
   transition: all 0.3s ease-in-out;
   display: flex;

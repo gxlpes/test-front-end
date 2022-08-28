@@ -3,9 +3,12 @@ import styled from "styled-components";
 export const Content = styled.div`
   max-width: 75rem;
   margin-inline: auto;
-  flex: 1 0 auto;
   opacity: 0;
   animation: fadeIn 0.5s 0.5s forwards ease-in-out;
+  box-sizing: border-box;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 
   @keyframes fadeIn {
     from {
