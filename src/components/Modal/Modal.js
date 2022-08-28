@@ -44,15 +44,15 @@ const Modal = ({ setClicked, details }) => {
       <div className="container-appear">
         <h3>Appearance</h3>
         <p>
-          <b>Number of appearances: </b> {details.episode.length} episodes
+          <b>Number of appearances: </b> {details.episode.length ? details.episode.length : "Loading..."} episodes
         </p>
         <p>
           <b>First appearance: </b>
-          {episodes.air_date} [{episodes.episode}]
+          {episodes.air_date ? episodes.air_date : "Loading..."} [{episodes.episode ? episodes.episode : "Loading..."}]
         </p>
         <p>
           <b>First episode name: </b>
-          {episodes.name}
+          {episodes.name ? episodes.name : "Loading..."}
         </p>
       </div>
       <button onClick={modalHandler}>Dismiss</button>
