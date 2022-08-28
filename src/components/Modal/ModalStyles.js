@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ModalContainer = styled.div`
   right: 0;
   left: 0;
-  top: 200px;
+  top: 150px;
   margin-right: auto;
   margin-left: auto;
   max-width: 30rem;
