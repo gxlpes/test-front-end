@@ -6,11 +6,6 @@ export const Content = styled.div`
   margin-inline: auto;
   flex: 1 0 auto;
 
-  background-image: url(${Image});
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-
   .modal {
     position: fixed;
     top: 30vh;

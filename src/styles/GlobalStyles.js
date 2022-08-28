@@ -14,6 +14,10 @@ body {
     font-family: "Roboto", sans-serif;
     margin-inline: auto;
     height: 100%;
+    background-image: url(${Image});
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 nav {

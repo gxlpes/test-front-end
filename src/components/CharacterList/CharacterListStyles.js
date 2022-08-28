@@ -5,4 +5,6 @@ export const CharactersListContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  color: white;
+  font-weight: bold;
 `;

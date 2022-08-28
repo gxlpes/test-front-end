@@ -50,7 +50,7 @@ const CharacterList = ({ filteredCharacters, setClicked, setDetail, sort }) => {
           );
         })
       ) : (
-        <p>No character found!</p>
+        <p>No character found</p>
       )}
     </CharactersListContainer>
   );
