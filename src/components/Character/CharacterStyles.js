@@ -8,6 +8,16 @@ export const CharacterCard = styled.div`
   border-radius: 5px;
   filter: drop-shadow(0px 5px 5px black);
   width: 20rem;
+  animation: animateEntry 0.3s ease-in-out;
+
+  @keyframes animateEntry {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   &:hover {
     transform: scale(1.01);

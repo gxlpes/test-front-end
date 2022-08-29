@@ -9,22 +9,23 @@ const CharacterList = ({ filteredCharacters, setClicked, setDetail, sort }) => {
       // normal sort
       return a.id > b.id ? 1 : -1;
     });
+    // checking if the filtered characters array is equal to 826 to set localStorage
     if (filteredCharacters.length >= 826) window.localStorage.setItem("charactersData", JSON.stringify(filteredCharacters)); // setting flatten data to the localStorage
   } else {
     filteredCharacters.sort((a, b) => {
       // name sort
       return a.name > b.name ? 1 : -1;
     });
+    // checking if the filtered characters array is equal to 826 to set localStorage
     if (filteredCharacters.length >= 826) window.localStorage.setItem("charactersData", JSON.stringify(filteredCharacters)); // setting flatten data to the localStorage
   }
 
-  // making the infinite scroll work, getting 3 more elements each loop
+  // making the infinite scroll work, getting 20 more elements each loop
   const [currentPage, setCurrentPage] = useState(20);
   let items = filteredCharacters.slice(0, currentPage);
 
   window.addEventListener("scroll", () => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-
     if (clientHeight + scrollTop >= scrollHeight - 75) {
       setCurrentPage(currentPage + 20);
     }

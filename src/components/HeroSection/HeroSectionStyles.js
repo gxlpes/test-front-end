@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const HeroContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-block: 4rem;
   gap: 2rem;
 
@@ -55,8 +57,19 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+
+  h2 {
+    margin-top: -1rem;
+    font-size: clamp(0.8vw + 0.8rem, 1vw + 1rem, 1.2vw + 1.2rem);
+    color: #8ac645;
+    font-family: "Roboto", sans-serif;
+    filter: drop-shadow(0px 5px 5px black);
+  }
 
   img {
+    margin-left: auto;
+    margin-right: 0;
     max-width: 90%;
     height: auto;
     width: 40rem;
@@ -80,13 +93,5 @@ export const HeroContent = styled.div`
       transform: scale(1.01);
       filter: drop-shadow(0px 5px 5px #8ac645);
     }
-  }
-
-  h2 {
-    margin-top: -1rem;
-    font-size: clamp(0.8vw + 0.8rem, 1vw + 1rem, 1.2vw + 1.2rem);
-    color: #8ac645;
-    font-family: "Roboto", sans-serif;
-    filter: drop-shadow(0px 5px 5px black);
   }
 `;

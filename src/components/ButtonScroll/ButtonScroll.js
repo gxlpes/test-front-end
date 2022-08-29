@@ -3,8 +3,9 @@ import { ReactComponent as UpSVG } from "../../assets/up.svg";
 import { ButtonScrl } from "./ButtonScrollStyles";
 
 const ButtonScroll = () => {
-  const [backToTop, setBackToTop] = useState(false); // display
+  const [backToTop, setBackToTop] = useState(false); // display or not the button
 
+  // run just once after the 1000 pixels is reached
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 1000) {
@@ -15,6 +16,7 @@ const ButtonScroll = () => {
     });
   }, []);
 
+  // function to return to top
   const scrollUp = () => {
     window.scrollTo({
       top: 0,
@@ -25,7 +27,7 @@ const ButtonScroll = () => {
   return (
     <>
       {backToTop && (
-        <ButtonScrl style={{ position: "fixed", fontSize: "10rem" }} onClick={scrollUp}>
+        <ButtonScrl onClick={scrollUp}>
           <UpSVG />
         </ButtonScrl>
       )}
