@@ -20,21 +20,17 @@ export const NavbarContainer = styled.a`
   }
 
   padding: 1rem;
-  height: 4rem;
+  height: 5rem;
   transition: all 0.3s ease-in-out;
   display: flex;
   justify-content: center;
   text-decoration: none;
   align-items: center;
+  flex-direction: column-reverse;
   color: #3f3f3f;
   font-weight: bold;
   gap: 1rem;
-
-  svg {
-    fill: #3f3f3f;
-    width: 1.5rem;
-    transition: all 0.2s ease-in-out;
-  }
+  text-align: center;
 
   &:hover {
     cursor: pointer;

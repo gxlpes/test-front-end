@@ -68,8 +68,6 @@ export const HeroContent = styled.div`
   }
 
   img {
-    margin-left: auto;
-    margin-right: 0;
     max-width: 90%;
     height: auto;
     width: 40rem;
