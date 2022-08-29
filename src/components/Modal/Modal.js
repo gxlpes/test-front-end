@@ -12,7 +12,6 @@ const Modal = ({ setClicked, details }) => {
         let res = await fetch(`${details.episode[0]}`); //getting the first page
         const firstEpisode = await res.json();
         setEpisodes(firstEpisode);
-        console.log(firstEpisode);
       } catch (error) {
         console.log(error);
       }

@@ -6,7 +6,6 @@ const Character = ({ name, image, species, status, setClickedState, setDetailSta
   const modalHandler = () => {
     setClickedState(true);
     setDetailState(character);
-    console.log(character);
   };
 
   return (
