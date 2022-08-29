@@ -4,11 +4,12 @@ export const Content = styled.div`
   max-width: 75rem;
   margin-inline: auto;
   opacity: 0;
-  animation: fadeIn 0.5s 0.5s forwards ease-in-out;
   box-sizing: border-box;
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  animation: fadeIn 0.5s 0.5s forwards ease-in-out;
 
   @keyframes fadeIn {
     from {

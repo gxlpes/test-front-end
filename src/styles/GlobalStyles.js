@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import Image from "../assets/background.png";
 
 export default createGlobalStyle`
 
@@ -10,8 +9,7 @@ export default createGlobalStyle`
    box-sizing: border-box;
    :focus {
     outline: none;
-}
-
+  }
 }
 
 body {
@@ -20,11 +18,6 @@ body {
     padding: 0;
     font-family: "Roboto", sans-serif;
     margin-inline: auto;
-    background-image: url(${Image});
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    min-height: 100vh;
 }
 
 .backdrop {

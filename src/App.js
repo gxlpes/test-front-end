@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Content } from "./styles/ContentStyles";
+
 import Loading from "./components/Loading/Loading";
+import Background from "./styles/Background";
 import Modal from "./components/Modal/Modal";
 import Navbar from "./components/Navbar/Navbar";
 import HeroSection from "./components/HeroSection/HeroSection";
@@ -84,22 +86,24 @@ function App() {
         <Loading />
       ) : (
         <>
-          <Navbar />
-          {clicked && (
-            <>
-              <div className="backdrop" onClick={modalHandler} />
-              <Modal setClicked={setClicked} details={detail} />
-            </>
-          )}
-          <Content>
-            <HeroSection onInputData={searchHandler} onSort={setSort} sort={sort} />
-            <CharacterList
-              filteredCharacters={filteredCharacters}
-              setDetail={setDetail}
-              setClicked={setClicked}
-              sort={sort}
-            />
-          </Content>
+          <Background>
+            <Navbar />
+            {clicked && (
+              <>
+                <div className="backdrop" onClick={modalHandler} />
+                <Modal setClicked={setClicked} details={detail} />
+              </>
+            )}
+            <Content>
+              <HeroSection onInputData={searchHandler} onSort={setSort} sort={sort} />
+              <CharacterList
+                filteredCharacters={filteredCharacters}
+                setDetail={setDetail}
+                setClicked={setClicked}
+                sort={sort}
+              />
+            </Content>
+          </Background>
           <ButtonScroll />
         </>
       )}
