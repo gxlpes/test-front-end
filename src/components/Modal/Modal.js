@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { ModalContainer } from "./ModalStyles";
 import { ReactComponent as DotSVG } from "../../assets/dot.svg";
 
-const Modal = ({ setClicked, details }) => {
+const Modal = ({ setClickedModal, details }) => {
   const [episodes, setEpisodes] = useState(" ");
 
-  // first episode fetch
+  // first episode fetch using data from the character clicked
   useEffect(() => {
     const fetchEp = async () => {
       try {
@@ -19,8 +19,9 @@ const Modal = ({ setClicked, details }) => {
     fetchEp();
   }, []);
 
+  // closing the modal
   const modalHandler = () => {
-    setClicked(false);
+    setClickedModal(false);
   };
 
   return (
@@ -37,10 +38,10 @@ const Modal = ({ setClicked, details }) => {
       <div className="container-character">
         <h3>Character</h3>
         <p>
-          <b>Gender:</b> {details.gender}
+          <b>Gender:</b> {details.gender === "unknown" ? "Unknown" : details.gender}
         </p>
         <p>
-          <b>Origin of the character:</b> {details.origin.name}
+          <b>Origin of the character:</b> {details.origin.name === "unknown" ? "Unknown" : details.origin.name}
         </p>
         <p>
           <b>Last known location: </b>

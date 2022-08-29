@@ -1,11 +1,11 @@
 import { ReactComponent as DotSVG } from "../../assets/dot.svg";
 import { CharacterCard, CharacterContent } from "./CharacterStyles";
 
-const Character = ({ name, image, species, status, setClickedState, setDetailState, character }) => {
+const Character = ({ name, image, species, status, setClickedModalState, setDetailCharacterState, character }) => {
   // setting the modal open, setting the state content of the modal
   const modalHandler = () => {
-    setClickedState(true);
-    setDetailState(character);
+    setClickedModalState(true);
+    setDetailCharacterState(character);
   };
 
   return (

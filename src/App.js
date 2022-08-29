@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Content } from "./styles/ContentStyles";
-
 import Loading from "./components/Loading/Loading";
 import Background from "./styles/Background";
 import Modal from "./components/Modal/Modal";
@@ -13,17 +12,19 @@ function App() {
   ///////////////////////  states management
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [clicked, setClicked] = useState(false); // lifting modal state up (CharacterList > Character)
-  const [detail, setDetail] = useState(" ");
+  const [clickedModal, setClickedModal] = useState(false); // lifting modal state up (Character > CharacterList > App)
+  const [detailCharacter, setDetailCharacter] = useState(" "); // lifting character details for the modal state up (CharacterList > App > Modal)
   const [search, setSearch] = useState("");
-  const [sort, setSort] = useState(false);
+  const [sort, setSort] = useState(false); // lifting sort state up (HeroSection > App > CharacterList)
 
   ////////////////////////// check if data is already loaded
   const loadedDataStorage = localStorage.getItem("charactersData");
   useEffect(() => {
+    //check if there is something in the localStorage
     if (loadedDataStorage) {
       const formattedData = JSON.parse(loadedDataStorage);
       setCharacters(formattedData);
+      // check if the data in the localStorage is sort by default
       if (formattedData[0].id === 1) {
         setSort(false);
       } else {
@@ -31,14 +32,15 @@ function App() {
       }
     } else {
       setTimeout(() => {
+        // wait the page to load and then load more data in the background
         fetchMoreData();
       }, 1000);
       fetchCharacters();
     }
   }, []);
 
-  /////////////////////// fetch function
-  let responses = [];
+  /////////////////////////// first fetch function
+  let responses = []; // all arrays
   const fetchCharacters = async () => {
     setLoading(true);
     try {
@@ -55,6 +57,7 @@ function App() {
     setLoading(false);
   };
 
+  ////////////////////////// fetching more data after the page loads
   const fetchMoreData = async () => {
     try {
       for (let i = 11; i <= 42; i++) {
@@ -71,13 +74,15 @@ function App() {
 
   /////////////////////// modal handler
   const modalHandler = () => {
-    setClicked(false);
+    setClickedModal(false);
   };
 
   /////////////////////// search character input and handler
   const searchHandler = (inputData) => {
     setSearch(inputData);
   };
+
+  // set the data from the characters state, if the user input is blank returns everything
   const filteredCharacters = characters.filter((character) => character.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
@@ -88,18 +93,24 @@ function App() {
         <>
           <Background>
             <Navbar />
-            {clicked && (
+            {clickedModal && (
               <>
                 <div className="backdrop" onClick={modalHandler} />
-                <Modal setClicked={setClicked} details={detail} />
+                <Modal setClickedModal={setClickedModal} details={detailCharacter} />
               </>
             )}
             <Content>
-              <HeroSection onInputData={searchHandler} onSort={setSort} sort={sort} />
+              <HeroSection
+                onInputData={searchHandler}
+                onSort={setSort}
+                sort={sort}
+                filteredCharacters={filteredCharacters}
+                characters={characters}
+              />
               <CharacterList
                 filteredCharacters={filteredCharacters}
-                setDetail={setDetail}
-                setClicked={setClicked}
+                setDetailCharacter={setDetailCharacter}
+                setClickedModal={setClickedModal}
                 sort={sort}
               />
             </Content>

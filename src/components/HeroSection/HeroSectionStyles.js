@@ -5,7 +5,7 @@ export const HeroContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-block: 4rem;
+  margin-block: 4rem 3rem;
   gap: 2rem;
 
   button {
@@ -28,6 +28,11 @@ export const HeroContainer = styled.div`
       outline: none;
       box-shadow: none;
     }
+  }
+
+  .info-characters {
+    font-style: italic;
+    color: white;
   }
 
   .buttons {
@@ -58,6 +63,7 @@ export const HeroContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 
   h2 {
     margin-top: -1rem;
@@ -65,10 +71,13 @@ export const HeroContent = styled.div`
     color: #8ac645;
     font-family: "Roboto", sans-serif;
     filter: drop-shadow(0px 5px 5px black);
+    text-align: center;
   }
 
   img {
+    margin-left: 6%;
     max-width: 90%;
+    margin-bottom: 1rem;
     height: auto;
     width: 40rem;
     filter: drop-shadow(0px 5px 5px black);

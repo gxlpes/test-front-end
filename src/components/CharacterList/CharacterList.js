@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Character from "../Character/Character";
 import { CharactersListContainer } from "./CharacterListStyles";
 
-const CharacterList = ({ filteredCharacters, setClicked, setDetail, sort }) => {
+const CharacterList = ({ filteredCharacters, setClickedModal, setDetailCharacter, sort }) => {
   // getting the state from App.js and changing the sort based in the state
   if (sort === false) {
     filteredCharacters.sort((a, b) => {
@@ -43,8 +43,8 @@ const CharacterList = ({ filteredCharacters, setClicked, setDetail, sort }) => {
                 name={character.name}
                 species={character.species}
                 status={character.status}
-                setClickedState={setClicked}
-                setDetailState={setDetail}
+                setClickedModalState={setClickedModal}
+                setDetailCharacterState={setDetailCharacter}
                 character={character}
               />
             </>

@@ -9,6 +9,7 @@ export default createGlobalStyle`
    box-sizing: border-box;
    :focus {
     outline: none;
+    font-family: "Roboto", sans-serif;
   }
 }
 

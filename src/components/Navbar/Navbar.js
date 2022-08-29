@@ -1,5 +1,4 @@
 import { NavbarContainer } from "./NavbarStyles";
-import { ReactComponent as GitHubSVG } from "../../assets/github.svg";
 
 const Navbar = () => {
   return (
