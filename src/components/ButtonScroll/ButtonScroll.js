@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ReactComponent as UpSVG } from "../../assets/up.svg";
 import { ButtonScrl } from "./ButtonScrollStyles";
 
 const ButtonScroll = () => {
@@ -6,7 +7,7 @@ const ButtonScroll = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 500) {
+      if (window.scrollY > 100) {
         setBackToTop(true);
       } else {
         setBackToTop(false);
@@ -25,7 +26,7 @@ const ButtonScroll = () => {
     <>
       {backToTop && (
         <ButtonScrl style={{ position: "fixed", fontSize: "10rem" }} onClick={scrollUp}>
-          Up
+          <UpSVG />
         </ButtonScrl>
       )}
     </>
