@@ -27,22 +27,6 @@ body {
     min-height: 100vh;
 }
 
-nav {
-    max-width: 100vw;
-    animation: fadeIn 0.5s ease-in-out;
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-}
-
 .backdrop {
     position: fixed;
     top: 0;
